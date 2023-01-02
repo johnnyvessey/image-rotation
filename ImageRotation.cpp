@@ -120,7 +120,7 @@ Image ImageRotation::FastRotateImage(Image image, int degrees)
 		int newCol = (int)(newX + (float)width / 2);
 		int newRow = (int)(-newY + (float)height / 2);
 
-		if (newCol < 0 || newRow < 0 || newRow > image.height || newCol > image.width) continue;
+		if (newCol < 0 || newRow < 0 || newRow > height || newCol > width) continue;
 
 		//reset neighborPixelCoefs
 		neighborPixelCoefs[0][0] = 0; neighborPixelCoefs[0][1] = 0; neighborPixelCoefs[1][0] = 0; neighborPixelCoefs[1][1] = 0;
@@ -132,7 +132,7 @@ Image ImageRotation::FastRotateImage(Image image, int degrees)
 			{
 				//offset by 1/8 because we want the sampling be centered on the pixel, not justified to the top-left
 				int subPxlCol = (int)(.125f + newX + .25f * x_idx  + width / 2);
-				int subPxlRow = (int)((int)image.height / 2 -(-.125f + newY - .25f * y_idx ));
+				int subPxlRow = (int)(height / 2 -(-.125f + newY - .25f * y_idx ));
 				if (0 <= subPxlRow && subPxlRow < height && 0 <= subPxlCol && subPxlCol < width)
 				{					
 					neighborPixelCoefs[subPxlRow - newRow][subPxlCol - newCol]++;					
