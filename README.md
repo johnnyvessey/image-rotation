@@ -1,5 +1,5 @@
 # image-rotation
-Accurate rotation of PNG images in C++
+Accurate rotation of PNG images in C++ for any angle
 
 Requires lodepng.h and lodepng.cpp to be in the same directory, which are from the repo: https://github.com/lvandeve/lodepng
 (These files handle parsing PNG files into a vector of the RGBA values of the image)
